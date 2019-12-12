@@ -5,7 +5,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    for (let node of this.$el.children) {
+      let name = node.nodeName.toLowerCase();
+      if (name !== "button") {
+        console.warn(
+          `c-button-group 的子元素应为 c-button，但是出现了 ${name}`
+        );
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss">
