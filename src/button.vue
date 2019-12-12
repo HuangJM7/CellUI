@@ -1,14 +1,28 @@
 <template>
   <div>
-    <button class="g-button">按钮</button>
+    <button class="g-button">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#i-settings"></use>
+      </svg>
+      按钮
+    </button>
   </div>
 </template>
 
 <script>
+import "./iconfont";
 export default {};
 </script>
 
 <style lang="scss">
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
 .g-button {
   font-size: var(--font-size);
   height: var(--button-height);
