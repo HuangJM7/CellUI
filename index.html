@@ -36,11 +36,18 @@
 
 <body>
     <div id="app">
-        <c-button>按钮</c-button>
-        <c-button icon="settings">按钮</c-button>
+        <c-button icon="settings" :loading="loading1" @click="loading1=!loading1">按钮</c-button>
         <c-button icon-position="right" icon="settings">按钮</c-button>
         <c-button icon-position="test" icon="settings">按钮</c-button>
+
+        <c-button-group>
+            <c-button icon="left">按钮</c-button>
+            <c-button>按钮</c-button>
+            <c-button icon-position="right" icon="right">按钮</c-button>
+        </c-button-group>
+
     </div>
+
     <!-- <script src="//at.alicdn.com/t/font_1559952_zzy2c3t68mr.js"></script> -->
     <script src="./src/app.js"></script>
 </body>
