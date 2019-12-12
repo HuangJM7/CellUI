@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <button class="g-button">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#i-settings"></use>
-      </svg>
-      按钮
-    </button>
-  </div>
+  <button class="g-button" :class="[`icon-${iconPosition}`]">
+    <svg v-if="icon" class="icon" aria-hidden="true">
+      <use :xlink:href="`#i-${icon}`"></use>
+    </svg>
+    <div class="content">
+      <slot></slot>
+    </div>
+  </button>
 </template>
 
 <script>
 import "./iconfont";
-export default {};
+export default {
+  props: ["icon", "iconPosition"]
+};
 </script>
 
 <style lang="scss">
@@ -30,6 +32,10 @@ export default {};
   border-radius: var(--border-radius);
   border: 1px solid var(border-color);
   background: var(--button-bg);
+  display: inline-flex;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
   &:hover {
     border-color: var(--border-color-hover);
   }
@@ -38,6 +44,20 @@ export default {};
   }
   &:focus {
     outline: none;
+  }
+  > .icon {
+    order: 1;
+  }
+  > .content {
+    order: 2;
+  }
+  &.icon-right {
+    > .icon {
+      order: 2;
+    }
+    > .content {
+      order: 1;
+    }
   }
 }
 </style>
