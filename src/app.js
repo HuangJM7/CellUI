@@ -16,6 +16,8 @@ new Vue({
 
 //单元测试
 import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 const expect = chai.expect
 
 //测试输入icon配置属性时,断言输出
@@ -95,12 +97,18 @@ const expect = chai.expect
     })
     vm.$mount()
 
-    //实例监听click事件,回调函数中定义错误断言,当错误提示出现,说明监听到click事件
-    //无法做到监听事件成功,断言成功,使用mock(chai.spy)进行优化
-    vm.$on('click', function () {
-        expect(1).to.eq(2)
-    })
+    //1 实例监听click事件,回调函数中定义错误断言,当错误提示出现,说明监听到click事件
+    //无法做到监听事件成功,断言成功,使用mock(Chai Spies)进行优化
+    // vm.$on('click', function () {
+    //     expect(1).to.eq(2)
+    // })
+
+    //2 chai-spies的使用
+    let spy = chai.spy()//生成spy实例
+    vm.$on('click', spy)//将spy实例使用在original函数的位置
 
     let button = vm.$el
     button.click()//触发button元素的click事件
+
+    expect(spy).to.have.been.called();//断言 spy 是否被使用,需要在click事件后判断
 }
