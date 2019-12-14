@@ -1,0 +1,75 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\7\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add nvm
+
+PATH: 
+  D:\Git\mingw64\bin;D:\Git\usr\bin;C:\Users\7\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;D:\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;D:\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\Users\7\AppData\Local\Programs\Python\Python38\Scripts;C:\Users\7\AppData\Local\Programs\Python\Python38;C:\Users\7\AppData\Local\Microsoft\WindowsApps;C:\Users\7\AppData\Local\GitHubDesktop\bin;C:\Users\7\AppData\Local\Microsoft\WindowsApps;C:\Users\7\AppData\Roaming\npm;C:\Program Files\nodejs\node.exe;C:\Users\7\AppData\Local\Programs\Python\Python38\python.exe;D:\Program Files\ffmpeg-20191031-7c872df-win64-static\bin;C:\Users\7\AppData\Local\Yarn\Data\global\node_modules\.bin;C:\Users\7\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\7\AppData\Local\Yarn\Cache\v6\npm-to-regex-range-5.0.1-1648c44aae7c8d988a326018ed72f5b4dd0392e4-integrity\node_modules\to-regex-range\index.js' -> 'D:\desktop\CellUI\node_modules\karma\node_modules\to-regex-range\index.js'
+
+npm manifest: 
+  {
+    "name": "cellui",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev-test": "parcel watch test/* --no-cache & karma run",
+      "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
+    },
+    "注释": {
+      "parcel build test/*": "parcel 打包test目录下的所有文件到dist目录",
+      "--no-cache": "不使用缓存,避免bug",
+      "--no-minify": "打包时不压缩源文件,避免bug",
+      "karma start --single-run": "karma 运行配置文件,"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/HuangJM7/CellUI.git"
+    },
+    "author": "HuangJM7",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/HuangJM7/CellUI/issues"
+    },
+    "homepage": "https://github.com/HuangJM7/CellUI#readme",
+    "dependencies": {
+      "vue": "^2.6.10",
+      "vue-hot-reload-api": "^2.3.4"
+    },
+    "devDependencies": {
+      "@vue/component-compiler-utils": "^3.1.0",
+      "chai": "^4.2.0",
+      "chai-spies": "^1.0.0",
+      "karma": "^4.4.1",
+      "karma-chai": "^0.1.0",
+      "karma-chai-spies": "^0.1.4",
+      "karma-chrome-launcher": "^3.1.0",
+      "karma-mocha": "^1.3.0",
+      "karma-sinon-chai": "^2.0.2",
+      "mocha": "^6.2.2",
+      "parcel-bundler": "^1.12.4",
+      "sass": "^1.23.7",
+      "sinon": "^7.5.0",
+      "sinon-chai": "^3.3.0",
+      "vue-template-compiler": "^2.6.10"
+    },
+    "alias": {
+      "vue": "./node_modules/vue/dist/vue.common.js"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
