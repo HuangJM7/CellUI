@@ -20,7 +20,7 @@ import spies from 'chai-spies'
 chai.use(spies)
 const expect = chai.expect
 
-//测试输入icon配置属性时,断言输出
+//测试输入icon配置属性时,断言输出icon
 {
     const Constructor = Vue.extend(Button)//获取button组件构造函数
     const vm = new Constructor({//
@@ -35,7 +35,7 @@ const expect = chai.expect
     vm.$el.remove()//删除页面元素
     vm.$destroy()//删除实例对象
 }
-//测试输入icon及loading配置属性,断言输出
+//测试输入icon及loading配置属性,断言输出icon
 {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
