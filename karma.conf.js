@@ -11,7 +11,7 @@ module.exports = function (config) {
                 includeStack: true
             }
         },
-        //运行文件
+        //运行dist目录下的所有文件,包括嵌套文件
         // list of files / patterns to load in the browser
         files: [
             'dist/**/*.test.js',
