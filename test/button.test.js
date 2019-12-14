@@ -8,7 +8,11 @@ Vue.config.devtools = false
 //BDD 行为驱动测试,更接近自然语言
 //describe,it函数属于mocha,自动引入
 describe('Button', () => {
-    //it函数隔绝作用域,并添加测试名 
+    //it函数隔绝作用域,并添加测试名
+    // it('测试test文件.', () => {
+    //     expect([1,2]).to.eq([1,2])
+    // })
+    
     it('存在.', () => {
         expect(Button).to.be.ok
     })

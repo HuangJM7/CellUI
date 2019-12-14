@@ -1,6 +1,7 @@
 //karma配置文件
 module.exports = function (config) {
     config.set({
+        //基础路径：表示karma从哪个位置开始找文件
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
         // frameworks to use
@@ -11,7 +12,8 @@ module.exports = function (config) {
                 includeStack: true
             }
         },
-        //运行dist目录下的所有文件,包括嵌套文件
+        //测试的入口文件
+        //   /**/*  运行dist目录下的所有文件,包括嵌套文件
         // list of files / patterns to load in the browser
         files: [
             'dist/**/*.test.js',
@@ -36,7 +38,7 @@ module.exports = function (config) {
         colors: true,
 
 
-        // level of logging
+        // level of logging 输出的日志级别
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
 
