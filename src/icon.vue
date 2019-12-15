@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import "./iconfont";
+import "./iconfont";//iconfont数据
 
 export default {
   props: {
