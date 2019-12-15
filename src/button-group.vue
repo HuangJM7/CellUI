@@ -1,5 +1,5 @@
 <template>
-  <div class="c-button-group">
+  <div class="u-button-group">
     <slot></slot>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
       let name = node.nodeName.toLowerCase();
       if (name !== "button") {
         console.warn(
-          `c-button-group 的子元素应为 c-button，但是出现了 ${name}`
+          `u-button-group 的子元素应为 u-button，但是出现了 ${name}`
         );
       }
     }
@@ -20,10 +20,10 @@ export default {
 </script>
 
 <style lang="scss">
-.c-button-group {
+.u-button-group {
   display: inline-flex;
   vertical-align: middle;
-  > .c-button {
+  > .u-button {
     border-radius: 0;
     &:not(:first-child) {
       margin-left: -1px;

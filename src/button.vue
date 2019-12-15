@@ -1,12 +1,12 @@
 <template>
   <button
-    class="c-button"
+    class="u-button"
     :class="[`icon-${iconPosition}`]"
     @click="$emit('click')"
   >
-    <c-icon class="icon" v-if="icon && !loading" :name="icon"></c-icon>
+    <u-icon class="icon" v-if="icon && !loading" :name="icon"></u-icon>
 
-    <c-icon class="loading icon" v-if="loading" name="loading"></c-icon>
+    <u-icon class="loading icon" v-if="loading" name="loading"></u-icon>
 
     <div class="content">
       <slot></slot>
@@ -18,7 +18,7 @@
 import Icon from "./icon";
 export default {
   components: {
-    "c-icon": Icon
+    "u-icon": Icon
   },
   // props: ["icon", "iconPosition"]
   props: {
@@ -49,7 +49,7 @@ export default {
   }
 }
 
-.c-button {
+.u-button {
   font-size: var(--font-size);
   height: var(--button-height);
   padding: 0 1em;

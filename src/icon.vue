@@ -1,5 +1,5 @@
 <template>
-  <svg class="c-icon" aria-hidden="true">
+  <svg class="u-icon" aria-hidden="true">
     <use :xlink:href="`#i-${name}`"></use>
   </svg>
 </template>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
-.c-icon {
+.u-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;

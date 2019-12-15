@@ -43,8 +43,8 @@
   export default {
     name: 'app',
     components: {
-      'g-button': Button,
-      'g-icon': Icon
+      'u-button': Button,
+      'u-icon': Icon
     }
   }
   ```
