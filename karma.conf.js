@@ -4,7 +4,8 @@ module.exports = function (config) {
         //基础路径：表示karma从哪个位置开始找文件
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
-        // frameworks to use
+
+        // frameworks to use  环境默认引入
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha', 'sinon-chai'],
         client: {

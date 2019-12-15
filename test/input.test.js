@@ -1,6 +1,7 @@
 const expect = chai.expect;
 import Vue from 'vue'
 import Input from '../src/input'
+import { afterEach } from 'mocha';
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -12,9 +13,13 @@ describe('Input', () => {
         expect(Input).to.be.ok
     })
     describe("props", () => {
+        const Constructor = Vue.extend(Input)
+        let vm;
+        afterEach(() => {
+            vm.$destroy()
+        })
         it('接受Value.', () => {
-            const Constructor = Vue.extend(Input)
-            const vm = new Constructor({
+            vm = new Constructor({
                 propsData: {
                     value: '1234'
                 }
@@ -24,8 +29,7 @@ describe('Input', () => {
             vm.$destroy()
         })
         it('接受 disabled.', () => {
-            const Constructor = Vue.extend(Input)
-            const vm = new Constructor({
+            vm = new Constructor({
                 propsData: {
                     disabled: true
                 }
@@ -35,8 +39,7 @@ describe('Input', () => {
             vm.$destroy()
         })
         it('接受 readonly.', () => {
-            const Constructor = Vue.extend(Input)
-            const vm = new Constructor({
+            vm = new Constructor({
                 propsData: {
                     readonly: true
                 }
@@ -49,8 +52,7 @@ describe('Input', () => {
             vm.$destroy()
         })
         it('接受 error.', () => {
-            const Constructor = Vue.extend(Input)
-            const vm = new Constructor({
+            vm = new Constructor({
                 propsData: {
                     error: "error"
                 }
@@ -62,6 +64,54 @@ describe('Input', () => {
             vm.$destroy()
         })
     })
+    describe("事件", () => {
+        const Constructor = Vue.extend(Input)
+        let vm;
+        afterEach(() => {
+            vm.$destroy()
+        })
+        it('支持 change 事件', () => {
+            vm = new Constructor({}).$mount()
+            const callback = sinon.fake()
+            vm.$on('change', callback)
+            var event = new Event('change')
+            let inputElement = vm.$el.querySelector('input')
+            inputElement.dispatchEvent(event)
+            //chai-sinon文档 
+            expect(callback).to.have.been.calledWith(event)
+        })
+        it('支持 input 事件', () => {
+            vm = new Constructor({}).$mount()
+            const callback = sinon.fake()
+            vm.$on('input', callback)
+            var event = new Event('input')
+            let inputElement = vm.$el.querySelector('input')
+            inputElement.dispatchEvent(event)
+            //chai-sinon文档 
+            expect(callback).to.have.been.calledWith(event)
+        })
+        it('支持 focus 事件', () => {
+            vm = new Constructor({}).$mount()
+            const callback = sinon.fake()
+            vm.$on('focus', callback)
+            var event = new Event('focus')
+            let inputElement = vm.$el.querySelector('input')
+            inputElement.dispatchEvent(event)
+            //chai-sinon文档 
+            expect(callback).to.have.been.calledWith(event)
+        })
+        it('支持 blur 事件', () => {
+            vm = new Constructor({}).$mount()
+            const callback = sinon.fake()
+            vm.$on('blur', callback)
+            var event = new Event('blur')
+            let inputElement = vm.$el.querySelector('input')
+            inputElement.dispatchEvent(event)
+            //chai-sinon文档 
+            expect(callback).to.have.been.calledWith(event)
+        })
 
+
+    })
 
 })
