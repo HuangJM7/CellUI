@@ -8,6 +8,7 @@
 import "./iconfont";//iconfont数据
 
 export default {
+  name:'unit-icon',
   props: {
     name: {}
   }
