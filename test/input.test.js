@@ -117,9 +117,6 @@ describe('Input', () => {
         //     //chai-sinon文档 
         //     expect(callback).to.have.been.calledWith(event)
         // })
-
-
-
     })
 
 })
