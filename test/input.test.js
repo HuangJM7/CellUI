@@ -70,17 +70,21 @@ describe('Input', () => {
         afterEach(() => {
             vm.$destroy()
         })
-        //合并事件测试
+        //合并事件测试,测试支持v-model
         it('支持 change/input/focus/blur 事件', () => {
             ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
                 vm = new Constructor({}).$mount()
                 const callback = sinon.fake()
                 vm.$on(eventName, callback)
                 var event = new Event(eventName)
+                //事件属性只读,不能直接添加
+                Object.defineProperty(event, 'target', {
+                    value: { value: "hi" }, enumerable: true
+                })
                 let inputElement = vm.$el.querySelector('input')
                 inputElement.dispatchEvent(event)
                 //chai-sinon文档 
-                expect(callback).to.have.been.calledWith(event)
+                expect(callback).to.have.been.calledWith('hi')
             })
         })
         // it('支持 input 事件', () => {
