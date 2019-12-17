@@ -1,6 +1,6 @@
 # UnitUI - 一个 Vue UI 组件
 
-[![Build Status](URI)
+[![Build Status](https://travis-ci.com/HuangJM7/UnitUI.svg?branch=master)](https://travis-ci.com/HuangJM7/UnitUI)
 
 ## 介绍
 
