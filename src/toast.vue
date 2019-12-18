@@ -1,11 +1,57 @@
 <template>
   <div class="toast">
     <slot></slot>
+    <span class="close" v-if="closeButton" @click="onClickClose">{{
+      closeButton.text
+    }}</span>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "unit-toast",
+  props: {
+    autoClose: {
+      type: Boolean,
+      default: true
+    },
+    autoCloseDelay: {
+      type: Number,
+      default: 5
+    },
+    closeButton: {
+      type: Object,
+      default() {
+        return {
+          text: "关闭",
+          callback: toast => {
+            toast.close();
+          }
+        };
+      }
+    }
+  },
+  methods: {
+    close() {
+      this.$el.remove();
+      this.$destroy();
+    },
+    onClickClose() {
+      this.close();
+      //防御性编程
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        this.closeButton.callback(this);//this即toast实例
+      }
+    }
+  },
+  mounted() {
+    if (this.autoClose) {
+      setTimeout(() => {
+        this.close();
+      }, this.autoCloseDelay * 1000);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

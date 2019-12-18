@@ -32,7 +32,15 @@ new Vue({
     },
     methods: {
         showToast() {
-            this.$toast('toast')
+            this.$toast('toast', {
+                autoClose: false,
+                closeButton: {
+                    text: '已读',
+                    callback(toast) {
+                        console.log('callback');
+                    }
+                }
+            })
         },
         inputChange(e) {
             console.log(e);
