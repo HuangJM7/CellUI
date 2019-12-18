@@ -35,14 +35,28 @@
 </head>
 
 <body>
+    <style>
+        .demo {
+            border: 1px solid #666;
+            min-height: 100px;
+        }
+    </style>
     <div id="app">
+        <u-layout style="height: 100vh;">
+            <u-sider class="demo">sider</u-sider>
+            <u-layout>
+                <u-header class="demo">header</u-header>
+                <u-content class="demo">content</u-content>
+                <u-footer class="demo">footer</u-footer>
+            </u-layout>
+        </u-layout>
+
+        <br>
         <u-row>
-            <u-col span="24"  :ipad="{span:8}" :narrow-pc="{span:4}" :pc="{span:2}"
-                :wide-pc="{span:1}">
+            <u-col span="24" :ipad="{span:8}" :narrow-pc="{span:4}" :pc="{span:2}" :wide-pc="{span:1}">
                 1
             </u-col>
-            <u-col span="24"  :ipad="{span:16}" :narrow-pc="{span:20}" :pc="{span:22}"
-                :wide-pc="{span:23}">11
+            <u-col span="24" :ipad="{span:16}" :narrow-pc="{span:20}" :pc="{span:22}" :wide-pc="{span:23}">11
             </u-col>
         </u-row>
         <br>
