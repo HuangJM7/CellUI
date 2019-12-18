@@ -33,7 +33,7 @@ new Vue({
     methods: {
         showToast() {
             this.$toast('提示', {
-                position: 'middle',
+                position: 'top',
                 autoClose: false,
                 closeButton: {
                     text: '已读',

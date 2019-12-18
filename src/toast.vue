@@ -89,7 +89,36 @@ export default {
 $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
+@keyframes fade-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in-top {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
 .toast {
+  animation: fade-in 0.5s;
   position: fixed;
   left: 50%;
   transform: translate(-50%);
@@ -116,9 +145,11 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     margin-left: 16px;
   }
   &.position-top {
+    animation: fade-in-top 0.5s;
     top: 0;
   }
   &.position-bottom {
+    animation: fade-in-bottom 0.5s;
     bottom: 0;
   }
   &.position-middle {

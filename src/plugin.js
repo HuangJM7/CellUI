@@ -19,6 +19,7 @@ export default {
         Vue.prototype.$toast = function (message, toastOption) {
             if (currentToast) {
                 currentToast.close()
+                currentToast = null
             }
             currentToast = createToast({ Vue, message, propsData: toastOption })
 
