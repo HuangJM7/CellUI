@@ -3,7 +3,11 @@
     <slot></slot>
   </div>
 </template>
-
+<script>
+export default {
+  name: "unit-content"
+};
+</script>
 <style lang="scss" scoped>
 .content {
   flex-grow: 1;
