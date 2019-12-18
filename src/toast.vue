@@ -1,6 +1,10 @@
 <template>
-  <div class="toast">
-    <slot></slot>
+  <div class="toast" ref="wrapper">
+    <div class="message">
+      <slot v-if="!enableHtml"></slot>
+      <div v-else v-html="$slots.default[0]"></div>
+    </div>
+    <div class="line" ref="line"></div>
     <span class="close" v-if="closeButton" @click="onClickClose">{{
       closeButton.text
     }}</span>
@@ -29,6 +33,10 @@ export default {
           }
         };
       }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -40,23 +48,34 @@ export default {
       this.close();
       //防御性编程
       if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback(this);//this即toast实例
+        this.closeButton.callback(this); //this即toast实例
       }
+    },
+    execAutoClose() {
+      if (this.autoClose) {
+        setTimeout(() => {
+          this.close();
+        }, this.autoCloseDelay * 1000);
+      }
+    },
+    updataStyles() {
+      this.$nextTick(() => {
+        this.$refs.line.style.height = `${
+          this.$refs.wrapper.getBoundingClientRect().height
+        }px`;
+      });
     }
   },
   mounted() {
-    if (this.autoClose) {
-      setTimeout(() => {
-        this.close();
-      }, this.autoCloseDelay * 1000);
-    }
+    this.updataStyles();
+    this.execAutoClose();
   }
 };
 </script>
 
 <style lang="scss" scoped>
 $font-size: 14px;
-$toast-height: 40px;
+$toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
 .toast {
   position: fixed;
@@ -65,7 +84,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   transform: translate(-50%);
   font-size: $font-size;
   line-height: 1.8;
-  height: $toast-height;
+  min-height: $toast-min-height;
   display: flex;
   align-items: center;
   color: white;
@@ -73,5 +92,17 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   box-shadow: 0 0px 3px 0px rgba(0, 0, 0.5);
   padding: 0 16px;
+  .message {
+    padding: 8px 0;
+  }
+  .close {
+    flex-shrink: 0;
+    padding-left: 16px;
+  }
+  .line {
+    height: 100%;
+    border-left: 1px solid #777;
+    margin-left: 16px;
+  }
 }
 </style>

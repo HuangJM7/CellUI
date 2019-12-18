@@ -32,7 +32,7 @@ new Vue({
     },
     methods: {
         showToast() {
-            this.$toast('toast', {
+            this.$toast('提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示', {
                 autoClose: false,
                 closeButton: {
                     text: '已读',
