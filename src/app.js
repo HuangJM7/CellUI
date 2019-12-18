@@ -10,6 +10,7 @@ import Header from './header'
 import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
+import plugin from './plugin'
 
 Vue.component('u-button', Button)
 Vue.component('u-icon', Icon)
@@ -22,6 +23,7 @@ Vue.component('u-header', Header)
 Vue.component('u-content', Content)
 Vue.component('u-footer', Footer)
 Vue.component('u-sider', Sider)
+Vue.use(plugin)
 
 new Vue({
     el: '#app',
@@ -29,6 +31,9 @@ new Vue({
         loading1: true,
     },
     methods: {
+        showToast() {
+            this.$toast('toast')
+        },
         inputChange(e) {
             console.log(e);
 
