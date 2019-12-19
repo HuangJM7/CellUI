@@ -42,6 +42,35 @@
         }
     </style>
     <div id="app">
+        //sync 修饰符添加数据更新事件, @update:selected="selectedTab = $event"
+        <u-tabs :selected.sync="selectedTab">
+            <u-tabs-head>
+                <template slot="actions">
+                    <button>设置</button>
+                </template>
+                <u-tabs-item name="woman">
+                    <u-icon name="settings"></u-icon>美女
+                </u-tabs-item>
+                <u-tabs-item name="finance" disabled>
+                    财经
+                </u-tabs-item>
+                <u-tabs-item name="sports">
+                    体育
+                </u-tabs-item>
+            </u-tabs-head>
+            <u-tabs-body>
+                <u-tabs-pane name="woman">
+                    美女相关资讯
+                </u-tabs-pane>
+                <u-tabs-pane name="finance">
+                    财经相关资讯
+                </u-tabs-pane>
+                <u-tabs-pane name="sports">
+                    体育相关资讯
+                </u-tabs-pane>
+            </u-tabs-body>
+        </u-tabs>
+        <br>
         <button @click="showToast">Toast</button>
         <br>
         <u-layout style="height: 100vh;">

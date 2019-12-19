@@ -11,6 +11,11 @@ import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
 import plugin from './plugin'
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsBody from './tabs-body'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs-pane'
 
 Vue.component('u-button', Button)
 Vue.component('u-icon', Icon)
@@ -23,12 +28,18 @@ Vue.component('u-header', Header)
 Vue.component('u-content', Content)
 Vue.component('u-footer', Footer)
 Vue.component('u-sider', Sider)
-Vue.use(plugin)
+Vue.use(plugin)//将toast依赖注册到实例原型链
+Vue.component('u-tabs', Tabs)
+Vue.component('u-tabs-head', TabsHead)
+Vue.component('u-tabs-body', TabsBody)
+Vue.component('u-tabs-item', TabsItem)
+Vue.component('u-tabs-pane', TabsPane)
 
 new Vue({
     el: '#app',
     data: {
         loading1: true,
+        selectedTab: 'sports'
     },
     methods: {
         showToast() {
