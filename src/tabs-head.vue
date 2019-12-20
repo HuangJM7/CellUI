@@ -1,7 +1,9 @@
 <template>
   <div class="tabs-head">
     <slot></slot>
-    <slot name="actions"></slot>
+    <div class="actions">
+      <slot name="actions"></slot>
+    </div>
   </div>
 </template>
 <script>
@@ -9,7 +11,15 @@ export default {
   name: "ubit-tabs-head"
 };
 </script>
-<style>
+<style lang="scss" scoped>
+$tab-height: 40px;
 .tabs-head {
+  display: flex;
+  height: $tab-height;
+  justify-content: flex-start;
+  align-items: center;
+  > .actions {
+    margin-left: auto;
+  }
 }
 </style> 

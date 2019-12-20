@@ -21,18 +21,17 @@ export default {
     }
   },
   data() {
-    return {   
+    return {
       eventBus: new Vue()
-      }
-    
+    };
   },
   provide() {
     return {
       eventBus: this.eventBus
     };
   },
-  created() {
-    // this.$emit('update:selected', 'xxx')
+  mounted() {
+    this.eventBus.$emit("update:selected", this.selected);
   }
 };
 </script>
