@@ -1,7 +1,7 @@
 <template>
   <div class="tabs-head">
     <slot></slot>
-    <div class="line" ref="line"></div>
+    <div class="line" ref="line" v-show="show"></div>
     <div class="actions">
       <slot name="actions"></slot>
     </div>
@@ -9,7 +9,24 @@
 </template>
 <script>
 export default {
-  name: "ubit-tabs-head"
+  name: "ubit-tabs-head",
+  inject: ["eventBus"],
+  data() {
+    return {
+      show: true //show控制初始化时line的动画
+    };
+  },
+  mounted() {
+    this.eventBus.$on("update:selected", (item, vm) => {
+      this.show = true;
+      let { width, height, top, left } = vm.$el.getBoundingClientRect();
+      console.log(width, height, top, left);
+
+      this.$refs.line.style.width = `${width}px`;
+      // this.$refs.line.style.left = `${left - 20}px`;
+      this.$refs.line.style.transform = `translateX(${left - 20}px)`;
+    });
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -24,7 +41,7 @@ $blue: blue;
     position: absolute;
     bottom: 0;
     border-bottom: 1px solid $blue;
-    width: 100px;
+    transition: all 0.3s;
   }
   > .actions {
     margin-left: auto;
