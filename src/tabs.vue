@@ -31,6 +31,11 @@ export default {
     };
   },
   mounted() {
+    if (this.$children.length === 0) {
+      // 异步报错难以测试
+      // throw new Error('tabs的子组件tabs-head和tabs-nav不存在')
+      console.warn(`tabs的子组件tabs-head和tabs-nav不存在`);
+    }
     // this.eventBus.$emit("update:selected", this.selected);
     this.$children.forEach(vm => {
       if (vm.$options.name === "ubit-tabs-head") {

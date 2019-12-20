@@ -43,13 +43,18 @@
     </style>
     <div id="app">
         <!-- //sync 修饰符添加数据更新事件, @update:selected="selectedTab = $event" -->
+        <u-tabs>
+            <div>test
+
+            </div>
+        </u-tabs>
         <u-tabs :selected.sync="selectedTab">
             <u-tabs-head>
                 <!-- 具名插槽 -->
                 <template slot="actions">
                     <button>设置</button>
                 </template>
-                
+
                 <u-tabs-item name="woman">
                     <u-icon name="settings"></u-icon>美女
                 </u-tabs-item>

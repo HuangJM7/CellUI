@@ -20,8 +20,6 @@ export default {
     this.eventBus.$on("update:selected", (item, vm) => {
       this.show = true;
       let { width, height, top, left } = vm.$el.getBoundingClientRect();
-      console.log(width, height, top, left);
-
       this.$refs.line.style.width = `${width}px`;
       // this.$refs.line.style.left = `${left - 20}px`;
       this.$refs.line.style.transform = `translateX(${left - 20}px)`;

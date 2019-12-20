@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-item" @click="selecteing" :class="classes">
+  <div class="tabs-item" @click="onClick" :class="classes" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -28,17 +28,21 @@ export default {
     }
   },
   methods: {
-    selecteing() {
+    onClick() {
       if (this.disabled) {
         return;
       }
-      this.eventBus.$emit("update:selected", this.name, this);
+      //防御性编程,方便测试
+      // this.eventBus.$emit("update:selected", this.name, this);
+      this.eventBus && this.eventBus.$emit("update:selected", this.name, this);
+      this.$emit("click"); //可测试代码
     }
   },
   created() {
-    this.eventBus.$on("update:selected", name => {
-      this.active = name === this.name;
-    });
+    this.eventBus &&
+      this.eventBus.$on("update:selected", name => {
+        this.active = name === this.name;
+      });
   }
 };
 </script>
