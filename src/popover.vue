@@ -1,6 +1,6 @@
 <template>
-  <div class="popover" @click="onClick">
-    <div class="content" v-show="visible">
+  <div class="popover" @click.stop="onClick">
+    <div class="content" v-if="visible">
       <slot name="content"></slot>
     </div>
     <slot></slot>
@@ -18,6 +18,17 @@ export default {
   methods: {
     onClick() {
       this.visible = !this.visible;
+
+      if (this.visible === true) {
+        this.$nextTick(() => {
+          let hander = () => {
+            this.visible = false;
+            console.log("document");
+            document.removeEventListener("click", hander);
+          };
+          document.addEventListener("click", hander);
+        });
+      }
     }
   }
 };
