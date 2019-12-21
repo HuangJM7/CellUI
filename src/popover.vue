@@ -47,26 +47,28 @@ export default {
     },
     positionContent() {
       //负责div区域的定位
-      const { contentWrapper, triggerWrapper } = this.$refs;
-      document.body.appendChild(contentWrapper);
-      let { width, height, top, left } = triggerWrapper.getBoundingClientRect();
-      if (this.position === "top") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === "bottom") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + height + window.scrollY + "px";
-      } else if (this.position === "left") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        let { height: height2 } = contentWrapper.getBoundingClientRect();
-        contentWrapper.style.top =
-          top + window.scrollY + (height - height2) / 2 + "px";//高度差为了居中对齐
-      } else if (this.position === "right") {
-        contentWrapper.style.left = left + window.scrollX + width + "px";
-        let { height: height2 } = contentWrapper.getBoundingClientRect();
-        contentWrapper.style.top =
-          top + window.scrollY + (height - height2) / 2 + "px";
-      }
+      const { content, trigger } = this.$refs;
+      document.body.appendChild(content);
+      const { width, height, top, left } = trigger.getBoundingClientRect();
+      const { height: height2 } = content.getBoundingClientRect();
+      //表驱动编程
+      const positions = {
+        top: { top: top + window.scrollY, left: left + window.scrollX },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+      content.style.left = positions[this.position].left + "px";
+      content.style.top = positions[this.position].top + "px";
     },
     onClickDocument(e) {
       //负责非popover区域的点击关闭逻辑

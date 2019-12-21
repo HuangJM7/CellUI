@@ -42,10 +42,23 @@
         }
     </style>
     <div id="app">
-        <u-popover>
+        <u-popover position="left">
             <template slot="content">content</template>
             <button>popover</button>
         </u-popover>
+        <u-popover position="right">
+            <template slot="content">content</template>
+            <button>popover</button>
+        </u-popover>
+        <u-popover position="top">
+            <template slot="content">content</template>
+            <button>popover</button>
+        </u-popover>
+        <u-popover position="bottom">
+            <template slot="content">content</template>
+            <button>popover</button>
+        </u-popover>
+
         <div>tabs</div>
         <!-- //sync 修饰符添加数据更新事件, @update:selected="selectedTab = $event" -->
         <u-tabs :selected.sync="selectedTab">
