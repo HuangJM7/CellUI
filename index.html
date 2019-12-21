@@ -42,13 +42,12 @@
         }
     </style>
     <div id="app">
-        <!-- //sync 修饰符添加数据更新事件, @update:selected="selectedTab = $event" -->
-        <div>popover</div>
         <u-popover>
             <template slot="content">content</template>
             <button>popover</button>
         </u-popover>
         <div>tabs</div>
+        <!-- //sync 修饰符添加数据更新事件, @update:selected="selectedTab = $event" -->
         <u-tabs :selected.sync="selectedTab">
             <u-tabs-head>
                 <!-- 具名插槽 -->
