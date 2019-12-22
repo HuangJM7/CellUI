@@ -3,7 +3,7 @@
     <div class="title" @click="toggle">
       {{ title }}
     </div>
-    <div class="content" v-if="visible">
+    <div class="content" v-if="open">
       <slot></slot>
     </div>
   </div>
@@ -17,36 +17,35 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    name: {
+      type: String,
+      required: true
     }
   },
   data() {
     return {
-      visible: false
+      open: false
     };
   },
   methods: {
     toggle() {
-      if (this.visible) {
-        this.close();
+      console.log("to");
+      if (this.open) {
+        this.eventBus.$emit("update:removeSelected", this.name);
       } else {
-        this.open();
+        this.eventBus.$emit("update:addSelected", this.name);
       }
-    },
-    open() {
-      this.visible = true;
-      this.eventBus && this.eventBus.$emit("update:selected", this);
-    },
-    close() {
-      this.visible = false;
     }
   },
   mounted() {
-    this.eventBus &&
-      this.eventBus.$on("update:selected", vm => {
-        if (vm !== this) {
-          this.close();
-        }
-      });
+    this.eventBus.$on("update:selected", names => {
+      if (names.indexOf(this.name) >= 0) {
+        this.open = true;
+      } else {
+        this.open = false;
+      }
+    });
   }
 };
 </script>

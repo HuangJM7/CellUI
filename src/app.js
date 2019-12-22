@@ -45,7 +45,8 @@ new Vue({
     el: '#app',
     data: {
         loading1: true,
-        selectedTab: 'sports'
+        tabsSelectedTab: "sports",
+        collapseSelectedTab: ['1', '2']
     },
     methods: {
         showToast() {
