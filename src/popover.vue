@@ -81,7 +81,6 @@ export default {
     },
     close() {
       //关闭div,移除关闭监听
-      console.log("close");
       this.visible = false;
       document.removeEventListener("click", this.onClickDocument);
     },
