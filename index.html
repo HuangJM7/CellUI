@@ -55,7 +55,9 @@
             <button>popover</button>
         </u-popover>
         <u-popover position="bottom">
-            <template slot="content">content</template>
+            <template slot="content" slot-scope="{close}">content
+                <button @click="close">popover</button>
+            </template>
             <button>popover</button>
         </u-popover>
 
