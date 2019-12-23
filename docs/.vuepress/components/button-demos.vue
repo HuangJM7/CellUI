@@ -4,8 +4,8 @@
     <u-button icon="settings">默认按钮</u-button>
     <u-button :loading="true">默认按钮</u-button>
     <u-button disabled>默认按钮</u-button>
+    <pre><code>{{content}}</code></pre>
   </div>
-  <!-- <pre><code>{{content}}</code></pre> -->
 </template>
 
 <script>
@@ -22,6 +22,8 @@ export default {
 <u-button :loading="true">默认按钮</u-button>
 <u-button disabled>默认按钮</u-button>
           `
+        .replace(/\t+| +/g, "")
+        .trim()
     };
   }
 };

@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/HuangJM7/CellUI#readme",
   "dependencies": {
+    "git-open": "^2.1.0",
     "nvm": "^0.0.4",
     "sass-loader": "^8.0.0",
     "vue": "^2.6.10",

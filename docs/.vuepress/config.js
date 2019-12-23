@@ -5,8 +5,8 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
-            { text: '快速开始', link: '/get-started/' },
-            { text: '组件', link: '/components/' },],
+            { text: '快速开始', link: '/get-started/' }
+        ],
         sidebar: [
             '/',
             ['/install/', '安装'],
