@@ -28,6 +28,7 @@
   "homepage": "https://github.com/HuangJM7/CellUI#readme",
   "dependencies": {
     "nvm": "^0.0.4",
+    "sass-loader": "^8.0.0",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.4"
   },
@@ -42,6 +43,7 @@
     "karma-mocha": "^1.3.0",
     "karma-sinon-chai": "^2.0.2",
     "mocha": "^6.2.2",
+    "node-sass": "^4.13.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.23.7",
     "sinon": "^7.5.0",

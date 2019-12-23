@@ -1,4 +1,5 @@
 module.exports = {
+    base: "/UnitUI/",
     title: 'Unit UI',
     description: 'Just playing around',
     themeConfig: {
