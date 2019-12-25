@@ -4,7 +4,7 @@
     <u-button icon="settings">默认按钮</u-button>
     <u-button :loading="true">默认按钮</u-button>
     <u-button disabled>默认按钮</u-button>
-    <pre><code>{{content}}</code></pre>
+    <!-- <pre><code>{{content}}</code></pre> -->
   </div>
 </template>
 

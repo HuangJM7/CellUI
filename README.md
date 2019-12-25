@@ -8,7 +8,7 @@
 
 ## 开始使用
 
-1. 添加 CSS 样式
+### 1. 添加 CSS 样式
   使用本框架前，请在 CSS 中开启 border-box
 
   ```
@@ -16,28 +16,29 @@
   ```
   IE 8 及以上浏览器都支持此样式。
 
-  你还需要设置默认颜色等变量（后续会改为 SCSS 变量）
-  ```
-  html {
-    --button-height: 32px;
-    --font-size: 14px;
-    --button-bg: white;
-    --button-active-bg: #eee;
-    --border-radius: 4px;
-    --color: #333;
-    --border-color: #999;
-    --border-color-hover: #666;
-  }
-  ```
-  IE 15 及以上浏览器都支持此样式。
-
-2. 安装 unit-ui
+### 2. 安装 unit-ui
   ```
   npm i --save unit-ui
   ```
-3. 引入 unit-ui
+### 3. 引入 unit-ui
+
+#### 3.1完整引入
+
+  在 main.js 中写入以下内容：
   ```
-  import {Button, ButtonGroup, Icon} from 'unit-ui'
+import UnitUI from 'unit-ui'
+import 'unit-ui/dist/index.css'
+Vue.use(UnitUI);
+
+new Vue({
+   el: '#app',
+   render: h => h(App)
+});
+  ```
+#### 3.2局部引入
+  在 main.js 中写入以下内容：
+  ```
+  import {Button, Icon} from 'unit-ui'
   import 'unit-ui/dist/index.css'
 
   export default {
@@ -48,6 +49,10 @@
     }
   }
   ```
+完整组件列表及引用方式
+```
+import {Button, ButtonGroup, Icon, Input, Row, Col, Layout, Header, Sider, Content, Footer, plugin, Tabs, TabsHead, TabsBody, TabsItem, TabsPane, Popover, Collapse, CollapseItem} from 'unit-ui'
+ ```
 
 ## 文档
 
