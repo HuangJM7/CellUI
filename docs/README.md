@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /logo.png
+heroImage: https://raw.githubusercontent.com/HuangJM7/UnitUI/master/docs/logo.png
 actionText: 快速开始 →
 actionLink: /get-started/
 features:

@@ -3,7 +3,7 @@ module.exports = {
     title: 'Unit UI',
     description: '一个易用的UI框架',
     themeConfig: {
-        logo: '/assets/img/logo.png',
+        logo: 'https://raw.githubusercontent.com/HuangJM7/UnitUI/master/docs/logo.png',
         nav: [
             { text: 'Home', link: '/' },
             { text: '快速开始', link: '/get-started/' }
