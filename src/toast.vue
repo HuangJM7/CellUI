@@ -130,7 +130,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   color: white;
   background: $toast-bg;
   border-radius: 4px;
-  box-shadow: 0 0px 3px 0px rgba(0, 0, 0.5);
+  box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.5);
   padding: 0 16px;
   .message {
     padding: 8px 0;
