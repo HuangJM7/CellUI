@@ -6,19 +6,38 @@ module.exports = {
         logo: 'https://raw.githubusercontent.com/HuangJM7/UnitUI/master/docs/logo.png',
         nav: [
             { text: 'Home', link: '/' },
-            { text: '快速开始', link: '/get-started/' }
-        ],
+            { text: '快速开始', link: '/get-started/' },
+            {
+                text: '组件', items: [
+                    { text: 'Icon 图标', link: '/components/Icon.md' },
+                    { text: 'Button 按钮', link: '/components/Button.md'},
+                    { text: 'Input 输入框', link: '/components/Input.md'},
+                    { text: 'Tabs 便签页', link: '/components/Tabs.md'},
+                    { text: 'Grid 网格', link: '/components/Grid.md'},
+                    { text: 'Layout 布局', link: '/components/Layout.md'},
+                    { text: 'Popover 弹出层', link: '/components/Popover.md'},
+                    { text: 'Collapse 手风琴', link: '/components/Collapse.md'},
+                    { text: 'Toast 提示', link: '/components/Toast.md'},
+                ]
+            }],
         sidebar: [
             '/',
             ['/get-started/', '快速开始'],
-            ['/install/', '安装'],
             {
                 title: '组件',   // 必要的
                 // path: '/components/',      // 可选的, 应该是一个绝对路径
                 // collapsable: false, // 可选的, 默认值是 true,
                 sidebarDepth: 2,    // 可选的, 默认值是 1
                 children: [
-                    ['/components/button.md', 'button'],
+                    ['/components/Icon.md', 'Icon 图标'],
+                    ['/components/Button.md', 'Button 按钮'],
+                    ['/components/Input.md', 'Input 输入框'],
+                    ['/components/Tabs.md', 'Tabs 便签页'],
+                    ['/components/Grid.md', 'Grid 网格'],
+                    ['/components/Layout.md', 'Layout 布局'],
+                    ['/components/Popover.md', 'Popover 弹出层'],
+                    ['/components/Collapse.md', 'Collapse 手风琴'],
+                    ['/components/Toast.md', 'Toast 提示'],
                 ]
             },],
         sidebarDepth: 2, // 默认 1 提取到 h2，0 为禁用，2 为 h2，h3

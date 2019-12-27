@@ -1,5 +1,5 @@
 <template>
-  <svg class="u-icon" aria-hidden="true">
+  <svg class="u-icon" aria-hidden="true" @click="$emit('click', $event)">
     <use :xlink:href="`#i-${name}`"></use>
   </svg>
 </template>
@@ -10,7 +10,7 @@ import "./iconfont";//iconfont数据
 export default {
   name:'unit-icon',
   props: {
-    name: {}
+    name
   }
 };
 </script>
